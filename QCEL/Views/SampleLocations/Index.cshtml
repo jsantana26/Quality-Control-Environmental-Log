@@ -1,0 +1,23 @@
+﻿@model QCEL.ViewModels.SampleLocationsViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sample Locations</h2>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Sample Number</th>
+        <th>Location</th>
+        <th>Zone</th>
+    </tr>
+    @foreach (var sampleLocation in @Model.SampleLocations)
+    {
+        <tr>
+            <td>@sampleLocation.SampleNumber</td>
+            <td>@sampleLocation.Location</td>
+            <td>@sampleLocation.Zone</td>
+        </tr>
+    }
+</table>
