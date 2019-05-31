@@ -178,6 +178,10 @@
     <Compile Include="Migrations\201905291803036_InitialModel.Designer.cs">
       <DependentUpon>201905291803036_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905291812521_PopulateSampleNumbers.cs" />
+    <Compile Include="Migrations\201905291812521_PopulateSampleNumbers.Designer.cs">
+      <DependentUpon>201905291812521_PopulateSampleNumbers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -265,6 +269,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905291803036_InitialModel.resx">
       <DependentUpon>201905291803036_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905291812521_PopulateSampleNumbers.resx">
+      <DependentUpon>201905291812521_PopulateSampleNumbers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
