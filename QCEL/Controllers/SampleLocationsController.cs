@@ -4,45 +4,29 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using QCEL.Models;
-using QCEL.ViewModels;
 
 namespace QCEL.Controllers
 {
 	public class SampleLocationsController : Controller
 	{
+		private ApplicationDbContext _context;
+
+		public SampleLocationsController()
+		{
+			_context = new ApplicationDbContext();
+		}
+
+		protected override void Dispose(bool disposing)
+		{
+			_context.Dispose();
+		}
+
 		// GET: SampleLocations
 		public ActionResult Index()
 		{
-			var sampleLocations = new List<SampleLocation>()
-			{
-				new SampleLocation(){
-					Id = 1,
-					SampleNumber = "BL1",
-					Location = "BL1 Wash area drain",
-					MicroTest = "Listeria SP",
-					ProductCode = "Sponge",
-					RequestType = "Environmental",
-					Type = "Sponge Sample/1",
-					Zone = "3"
-				},
-				new SampleLocation(){
-					Id = 2,
-					SampleNumber = "BL2",
-					Location = "BL1 Blender Floor",
-					MicroTest = "Listeria SP",
-					ProductCode = "Sponge",
-					RequestType = "Environmental",
-					Type = "Sponge Sample/1",
-					Zone = "3"
-				}
-			};
+			var sampleLocations = _context.SampleLocations.ToList();
 
-			var viewModel = new SampleLocationsViewModel
-			{
-				SampleLocations = sampleLocations
-			};
-
-			return View(viewModel);
+			return View(sampleLocations);
 		}
 
 		// GET: SampleLocations/Details/5
