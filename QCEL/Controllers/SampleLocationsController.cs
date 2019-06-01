@@ -24,7 +24,10 @@ namespace QCEL.Controllers
 		// GET: SampleLocations
 		public ActionResult Index()
 		{
-			return View();
+			if (User.IsInRole(RoleName.CanManageSampleLocations))
+				return View("List");
+
+			return View("ReadOnlyList");
 		}
 
 		// GET: SampleLocations/Details/5
