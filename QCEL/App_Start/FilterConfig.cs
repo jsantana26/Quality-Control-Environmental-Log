@@ -7,6 +7,9 @@ namespace QCEL
 	{
 		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
+			//Add global filter to make sure they are logged in to access the application
+			filters.Add(new AuthorizeAttribute());
+
 			filters.Add(new HandleErrorAttribute());
 		}
 	}
