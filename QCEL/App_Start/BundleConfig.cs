@@ -13,8 +13,8 @@ namespace QCEL
 				"~/Scripts/bootstrap.js",
 				"~/Scripts/bootbox.js",
 				"~/Scripts/respond.js",
-				"~/Scripts/datatables/jquery.datatables.js",
-				"~/Scripts/datatables/datatables.bootstrap.js"));
+				"~/Scripts/DataTables/jquery.dataTables.js",
+				"~/Scripts/DataTables/dataTables.bootstrap.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
 						"~/Scripts/jquery.validate*"));
@@ -26,7 +26,7 @@ namespace QCEL
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 				"~/Content/bootstrap-lumen.css",
-				"~/Content/datatables/css/datatables.bootstrap.css",
+				"~/Content/Datatables/css/dataTables.bootstrap.css",
 				"~/Content/site.css"));
 		}
 	}
