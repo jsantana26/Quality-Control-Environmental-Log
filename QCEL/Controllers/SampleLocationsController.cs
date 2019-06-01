@@ -24,9 +24,7 @@ namespace QCEL.Controllers
 		// GET: SampleLocations
 		public ActionResult Index()
 		{
-			var sampleLocations = _context.SampleLocations.ToList();
-
-			return View(sampleLocations);
+			return View();
 		}
 
 		// GET: SampleLocations/Details/5
@@ -57,3 +55,45 @@ namespace QCEL.Controllers
 
 	}
 }
+
+
+
+/*
+ * 
+ * ,
+                    {
+                        data: "SampleNumber",
+                        render: function(data, type, sampleNumber) {
+                            return "<a href='/SampleLocations/edit/" +
+                                sampleNumber.id +
+                                "'>" +
+                                sampleNumber.SampleLocation +
+                                "</a>";
+                        }
+                    },
+                    {
+                        data: "Location"
+                    },
+                    {
+                        data: "MicroTest"
+                    },
+                    {
+                        data: "Type"
+                    },
+                    {
+                        data: "ProductCode"
+                    },
+                    {
+                        data: "Zone"
+                    },
+                    {
+                        data: "RequestType"
+                    },
+                    {
+                        data: "Id",
+                        render: function(data) {
+                            return "<button data-sampleLocation-id='" + data + " class='btn-link js-delete'>Delete</button>"
+                        }
+                    }
+ * 
+ */
