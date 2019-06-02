@@ -141,6 +141,7 @@ namespace QCEL.Controllers
 		{
 			if (User.IsInRole(RoleName.CanManageAccounts))
 				return View();
+
 			return View("UnauthorizedRegister");
 		}
 
