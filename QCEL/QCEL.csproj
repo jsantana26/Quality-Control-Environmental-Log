@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201906020033086_SeedUsers1.Designer.cs">
       <DependentUpon>201906020033086_SeedUsers1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906021527088_AddNameToApplicationUser.cs" />
+    <Compile Include="Migrations\201906021527088_AddNameToApplicationUser.Designer.cs">
+      <DependentUpon>201906021527088_AddNameToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -484,6 +488,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906020033086_SeedUsers1.resx">
       <DependentUpon>201906020033086_SeedUsers1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906021527088_AddNameToApplicationUser.resx">
+      <DependentUpon>201906021527088_AddNameToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
