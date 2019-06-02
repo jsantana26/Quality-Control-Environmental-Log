@@ -137,16 +137,17 @@ namespace QCEL.Controllers
 
 		//
 		// GET: /Account/Register
-		[AllowAnonymous]
 		public ActionResult Register()
 		{
-			return View();
+			if (User.IsInRole(RoleName.CanManageAccounts))
+				return View();
+			return View("UnauthorizedRegister");
 		}
 
 		//
 		// POST: /Account/Register
 		[HttpPost]
-		[AllowAnonymous]
+		[Authorize(Roles = RoleName.CanManageAccounts)]
 		[ValidateAntiForgeryToken]
 		public async Task<ActionResult> Register(RegisterViewModel model)
 		{
@@ -156,9 +157,19 @@ namespace QCEL.Controllers
 				var result = await UserManager.CreateAsync(user, model.Password);
 				if (result.Succeeded)
 				{
+					//TODO: Remove this code
+					//var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+					//var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+					//await roleManager.CreateAsync(new IdentityRole("CanManageSampleLocations"));
+					//await roleManager.CreateAsync(new IdentityRole("CanManageAccounts"));
+
+					//await UserManager.AddToRoleAsync(user.Id, "CanManageSampleLocations");
+					//await UserManager.AddToRoleAsync(user.Id, "CanManageAccounts");
+
 					//Uncomment to allow automatic logging in after registration
 					//await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-					
+
 					// For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
 					// Send an email with this link
 					// string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

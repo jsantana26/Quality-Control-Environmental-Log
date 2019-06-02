@@ -202,6 +202,10 @@
     <Compile Include="Migrations\201906012344503_SeedUsers.Designer.cs">
       <DependentUpon>201906012344503_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906020033086_SeedUsers1.cs" />
+    <Compile Include="Migrations\201906020033086_SeedUsers1.Designer.cs">
+      <DependentUpon>201906020033086_SeedUsers1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -445,6 +449,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\SampleLocations\List.cshtml" />
     <Content Include="Views\SampleLocations\ReadOnlyList.cshtml" />
+    <Content Include="Views\Account\UnauthorizedRegister.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -472,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906012344503_SeedUsers.resx">
       <DependentUpon>201906012344503_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906020033086_SeedUsers1.resx">
+      <DependentUpon>201906020033086_SeedUsers1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
