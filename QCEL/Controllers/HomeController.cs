@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using QCEL.Models;
 
 namespace QCEL.Controllers
 {
@@ -10,6 +11,9 @@ namespace QCEL.Controllers
 	{
 		public ActionResult Index()
 		{
+			if(User.IsInRole(RoleName.CanManageAccounts) || User.IsInRole(RoleName.CanManageSampleLocations))
+				return View("AdminIndex");
+
 			return View();
 		}
 
