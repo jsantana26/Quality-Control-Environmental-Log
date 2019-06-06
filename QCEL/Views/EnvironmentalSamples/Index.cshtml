@@ -1,0 +1,47 @@
+﻿@model List<QCEL.Models.EnvironmentalSample>
+@{
+    ViewBag.Title = "Environmental Samples";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start;">
+    <h2>@ViewBag.Title</h2>
+    @Html.ActionLink("Add Sample", "New", "EnvironmentalSamples", routeValues: null, htmlAttributes: new { style="margin: 15px 0px 0px 0px;", @class = "btn btn-primary"})
+</div>
+<table id="employees" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Sample #</th>
+        <th>Location</th>
+        <th>Request Type</th>
+        <th>Collection Date</th>
+        <th>QC Initials</th>
+        <th>Type/Number of Sample</th>
+        <th>Micro Test</th>
+        <th>Status</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.SampleNumber</td>
+            <td>@user.Location</td>
+            <td>@user.RequestType</td>
+            <td>@user.CollectionDate.Value.ToShortDateString()</td>
+            <td>@user.Initials</td>
+            <td>@user.Type</td>
+            <td>@user.MicroTest</td>
+            @if (user.PendingSubmission)
+            {
+                <td>Submitted</td>
+            }
+            else
+            {
+                <td></td>
+            }
+        </tr>
+    }
+    </tbody>
+</table>
