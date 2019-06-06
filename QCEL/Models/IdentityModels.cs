@@ -27,6 +27,7 @@ namespace QCEL.Models
 	public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 	{
 		public DbSet<SampleLocation> SampleLocations { get; set; }
+		public DbSet<EnvironmentalSample> EnvironmentalSamples { get; set; }
 		public ApplicationDbContext()
 			: base("DefaultConnection", throwIfV1Schema: false)
 		{
