@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.EnvironmentalSample.CollectionDate)
-        @Html.TextBoxFor(m => m.EnvironmentalSample.CollectionDate,"{0:dd MMM yyyy}", new {@class = "form-control"})
+        @Html.TextBoxFor(m => m.EnvironmentalSample.CollectionDate,"{0:dd MMM yyyy}", new {@class = "form-control", @Value = @DateTime.Now.ToShortDateString()})
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
 }
