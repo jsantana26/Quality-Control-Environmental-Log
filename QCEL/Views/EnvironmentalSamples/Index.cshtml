@@ -8,7 +8,7 @@
     <h2>@ViewBag.Title</h2>
     @Html.ActionLink("Add Sample", "New", "EnvironmentalSamples", routeValues: null, htmlAttributes: new { style="margin: 15px 0px 0px 0px;", @class = "btn btn-primary"})
 </div>
-<table id="employees" class="table table-bordered table-hover">
+<table id="environmentalSamples" class="table table-bordered table-hover">
     <thead>
     <tr>
         <th>Sample #</th>
@@ -29,7 +29,7 @@
             <td>@user.SampleNumber</td>
             <td>@user.Location</td>
             <td>@user.RequestType</td>
-            <td>@user.CollectionDate.Value.ToShortDateString()</td>
+            <td>@user.CollectionDate.Value.ToString("MM/dd/yyyy")</td>
             <td>@user.Initials</td>
             <td>@user.Type</td>
             <td>@user.MicroTest</td>
@@ -45,3 +45,12 @@
     }
     </tbody>
 </table>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#environmentalSamples").DataTable();
+        });
+    </script>
+}
