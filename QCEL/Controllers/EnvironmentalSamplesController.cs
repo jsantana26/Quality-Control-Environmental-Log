@@ -62,7 +62,8 @@ namespace QCEL.Controllers
 				ProductCode = sampleInfo.ProductCode,
 				RequestType = sampleInfo.RequestType,
 				Type = sampleInfo.Type,
-				Initials = currentUser.FirstName[0].ToString() + currentUser.LastName[0].ToString()
+				Initials = currentUser.FirstName[0].ToString() + currentUser.LastName[0].ToString(),
+				PendingSubmission = true
 			};
 
 			_context.EnvironmentalSamples.Add(newSample);
