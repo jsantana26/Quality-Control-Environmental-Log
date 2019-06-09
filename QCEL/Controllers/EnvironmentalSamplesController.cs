@@ -63,7 +63,7 @@ namespace QCEL.Controllers
 				RequestType = sampleInfo.RequestType,
 				Type = sampleInfo.Type,
 				Initials = currentUser.FirstName[0].ToString() + currentUser.LastName[0].ToString(),
-				PendingSubmission = true
+				Submitted = false
 			};
 
 			_context.EnvironmentalSamples.Add(newSample);
