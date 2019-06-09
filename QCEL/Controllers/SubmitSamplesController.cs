@@ -19,8 +19,21 @@ namespace QCEL.Controllers
         // GET: SubmitSamples
         public ActionResult Index()
         {
-	        var environmentalSample = _context.EnvironmentalSamples.Where(c => c.PendingSubmission).ToList();
+	        var environmentalSample = _context.EnvironmentalSamples.Where(c => c.Submitted == false).ToList();
             return View(environmentalSample);
         }
-    }
+
+        public ActionResult Index(List<EnvironmentalSample> samples)
+        {
+	        foreach (var sample in samples)
+	        {
+		        if (sample.Submitted)
+		        {
+					//TODO: Update the database to make sample submitted
+		        }
+	        }
+
+	        return View();
+        }
+	}
 }

@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201906060202227_MadecollectiondateNullableInEnvironmentalSampleModel.Designer.cs">
       <DependentUpon>201906060202227_MadecollectiondateNullableInEnvironmentalSampleModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906092050010_UpdatedNameForPendingSamplesToSubmitted.cs" />
+    <Compile Include="Migrations\201906092050010_UpdatedNameForPendingSamplesToSubmitted.Designer.cs">
+      <DependentUpon>201906092050010_UpdatedNameForPendingSamplesToSubmitted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EnvironmentalSample.cs" />
@@ -521,6 +525,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906060202227_MadecollectiondateNullableInEnvironmentalSampleModel.resx">
       <DependentUpon>201906060202227_MadecollectiondateNullableInEnvironmentalSampleModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906092050010_UpdatedNameForPendingSamplesToSubmitted.resx">
+      <DependentUpon>201906092050010_UpdatedNameForPendingSamplesToSubmitted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

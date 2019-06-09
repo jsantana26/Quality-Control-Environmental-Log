@@ -4,46 +4,56 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm("Index", "SubmitSamples"))
+{ 
+    <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start;">
+        <h2>Submit Samples</h2>
+        <button type="submit">Submit</button>
+    </div>
 
-
-<table id="environmentalSamples" class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>Sample #</th>
-            <th>Location</th>
-            <th>Request Type</th>
-            <th>Collection Date</th>
-            <th>QC Initials</th>
-            <th>Type/Number of Sample</th>
-            <th>Micro Test</th>
-            <th>Status</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model)
-        {
+    <table id="environmentalSamples" class="table table-bordered table-hover">
+        <thead>
             <tr>
-                <td>@user.SampleNumber</td>
-                <td>@user.Location</td>
-                <td>@user.RequestType</td>
-                <td>@user.CollectionDate.Value.ToString("MM/dd/yyyy")</td>
-                <td>@user.Initials</td>
-                <td>@user.Type</td>
-                <td>@user.MicroTest</td>
-            </tr>
-        }
-    </tbody>
-</table>
+                <th>Sample #</th>
+                <th>Location</th>
+                <th>Request Type</th>
+                <th>Collection Date</th>
+                <th>QC Initials</th>
+                <th>Type/Number of Sample</th>
+                <th>Micro Test</th>
+                <th>Submit</th>
 
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.SampleNumber</td>
+                    <td>@user.Location</td>
+                    <td>@user.RequestType</td>
+                    <td>@user.CollectionDate.Value.ToString("MM/dd/yyyy")</td>
+                    <td>@user.Initials</td>
+                    <td>@user.Type</td>
+                    <td>@user.MicroTest</td>
+                    <td>
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => user.Submitted)
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 @section Scripts
 {
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#environmentalSamples").DataTable({
-                "order": [[ 3, "desc" ]]
+                "order": [[3, "desc"]]
             });
         });
     </script>
+
 }
