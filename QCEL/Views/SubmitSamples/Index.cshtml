@@ -1,4 +1,4 @@
-﻿
+﻿@model List<QCEL.Models.EnvironmentalSample>
 @{
     ViewBag.Title = "Submit Samples";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,11 +7,43 @@
 <h2>@ViewBag.Title</h2>
 
 
-<table id="environmentalSamples">
+<table id="environmentalSamples" class="table table-bordered table-hover">
     <thead>
+        <tr>
+            <th>Sample #</th>
+            <th>Location</th>
+            <th>Request Type</th>
+            <th>Collection Date</th>
+            <th>QC Initials</th>
+            <th>Type/Number of Sample</th>
+            <th>Micro Test</th>
+            <th>Status</th>
 
+        </tr>
     </thead>
     <tbody>
-
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.SampleNumber</td>
+                <td>@user.Location</td>
+                <td>@user.RequestType</td>
+                <td>@user.CollectionDate.Value.ToString("MM/dd/yyyy")</td>
+                <td>@user.Initials</td>
+                <td>@user.Type</td>
+                <td>@user.MicroTest</td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#environmentalSamples").DataTable({
+                "order": [[ 3, "desc" ]]
+            });
+        });
+    </script>
+}
