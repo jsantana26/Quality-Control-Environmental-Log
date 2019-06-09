@@ -36,7 +36,7 @@ namespace QCEL.Controllers
 			return View();
 		}
 
-		// GET: SampleLocations/Create
+		// GET: SampleLocations/EnvironmentalLabel
 		public ActionResult Create()
 		{
 			return View();

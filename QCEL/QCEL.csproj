@@ -190,7 +190,7 @@
     <Compile Include="Controllers\SampleLocationsController.cs" />
     <Compile Include="Dtos\SampleLocationDto.cs" />
     <Compile Include="Excel\ExcelConnection.cs" />
-    <Compile Include="Excel\GenerateLabels.cs" />
+    <Compile Include="Excel\GenerateLabel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

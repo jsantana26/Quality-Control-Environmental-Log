@@ -6,9 +6,9 @@ using QCEL.Models;
 
 namespace QCEL.Excel
 {
-	public static class GenerateLabels
+	public static class GenerateLabel
 	{
-		public static void Create(EnvironmentalSample sample)
+		public static void EnvironmentalLabel(EnvironmentalSample sample)
 		{
 			ExcelConnection excel = new ExcelConnection("Sample Labels");
 
