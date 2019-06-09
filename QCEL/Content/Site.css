@@ -22,3 +22,33 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.app-home-card {
+    background: #4363CC;
+    color: white;
+    text-align: center;
+    padding: 10px 0px 30px 11px;
+    margin: 10px;
+    min-height: 165px;
+}
+
+.app-home-card-title {
+    color: white;
+}
+
+.app-home-card-body {
+    text-decoration: none;
+    color: white;
+    margin: auto;
+}
+
+.app-home-card-body-description {
+    padding-top: 5px;
+    font-size: 25px;
+}
+
+.app-home-card-img {
+    width: 40px;
+    height: 40px;
+    margin: 15px 10px 10px 10px;
+}

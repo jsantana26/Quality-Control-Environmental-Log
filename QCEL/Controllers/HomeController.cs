@@ -9,8 +9,18 @@ namespace QCEL.Controllers
 {
 	public class HomeController : Controller
 	{
+		private ApplicationDbContext _context;
+
+		public HomeController()
+		{
+			_context = new ApplicationDbContext();
+		}
+
 		public ActionResult Index()
 		{
+			var todaysSamples = _context.EnvironmentalSamples.Count(c => c.CollectionDate == DateTime.Today);
+			ViewBag.TodaysSamples = todaysSamples;
+
 			if(User.IsInRole(RoleName.CanManageAccounts) || User.IsInRole(RoleName.CanManageSampleLocations))
 				return View("AdminIndex");
 

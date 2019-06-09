@@ -3,22 +3,39 @@
 }
 
 <div class="jumbotron">
-    <h1>QC Environmental Log</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Dashboard</h1>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Sample Sites</h2>
-        <p>
-            See the list of swab sites.
-        </p>
-        @Html.ActionLink("View Sample Sites", "Index","SampleLocations",null, new {@class = "btn btn-primary"})
+    <div class="col-md-4 app-home-card">
+        <a href="@Url.Action("Index", "EnvironmentalSamples")">
+            <div>
+                <div style="display: flex; flex-direction: row">
+                    <img src="@Url.Content("~/Content/Images/search-icon.png")" alt="SearchIcon" class="app-home-card-img" />
+                    <h2 class="app-home-card-title">Environmental Log</h2>
+                </div>
+                <p class="app-home-card-body">See the records for all Environmental Samples.</p>
+                @if (@ViewBag.TodaysSamples == 1)
+                {
+                    <p class="app-home-card-body app-home-card-body-description">@ViewBag.TodaysSamples sample today</p>
+                }
+                else
+                {
+                    <p class="app-home-card-body app-home-card-body-description">@ViewBag.TodaysSamples samples today</p>
+                }
+            </div>
+        </a>
     </div>
-    <div class="col-md-4">
-        <h2>Sample log</h2>
-        <p>See all samples that have been entered.</p>
-        @Html.ActionLink("View Sample Log", "Index", "EnvironmentalSamples",null, new { @class = "btn btn-primary"})
+
+    <div class="col-md-3 app-home-card">
+        <a href="@Url.Action("Index", "SampleLocations")">
+            <div>
+                <div style="display: flex; flex-direction: row">
+                    <img src="@Url.Content("~/Content/Images/search-icon.png")" alt="SearchIcon" class="app-home-card-img" />
+                    <h2 class="app-home-card-title">Sample Sites</h2>
+                </div>
+                <p class="app-home-card-body">See a list of all the swab sites available.</p>
+            </div>
+        </a>
     </div>
 </div>
