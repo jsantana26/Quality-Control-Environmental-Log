@@ -50,7 +50,9 @@
 {
     <script>
         $(document).ready(function() {
-            $("#environmentalSamples").DataTable();
+            $("#environmentalSamples").DataTable({
+                "order": [[ 3, "desc" ]]
+            });
         });
     </script>
 }
