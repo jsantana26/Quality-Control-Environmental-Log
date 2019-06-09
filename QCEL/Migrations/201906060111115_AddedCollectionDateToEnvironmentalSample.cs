@@ -8,12 +8,12 @@ namespace QCEL.Migrations
         public override void Up()
         {
             AddColumn("dbo.EnvironmentalSamples", "CollectionDate", c => c.DateTime(nullable: false));
-            AlterColumn("dbo.EnvironmentalSamples", "PendingSubmission", c => c.Boolean(nullable: false));
+            AlterColumn("dbo.EnvironmentalSamples", "Submitted", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.EnvironmentalSamples", "PendingSubmission", c => c.String());
+            AlterColumn("dbo.EnvironmentalSamples", "Submitted", c => c.String());
             DropColumn("dbo.EnvironmentalSamples", "CollectionDate");
         }
     }

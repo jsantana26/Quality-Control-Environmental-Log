@@ -56,8 +56,8 @@ namespace QCEL.Models
 
 		/// <summary>
 		/// Is the sample pending submission
-		/// Default will be true when sample is created
+		/// Default will be false when sample is created
 		/// </summary>
-		public bool PendingSubmission { get; set; }
+		public bool Submitted { get; set; }
 	}
 }
