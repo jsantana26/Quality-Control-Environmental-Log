@@ -7,33 +7,37 @@ using QCEL.Models;
 
 namespace QCEL.Controllers
 {
-    public class SubmitSamplesController : Controller
-    {
-	    private ApplicationDbContext _context;
+	public class SubmitSamplesController : Controller
+	{
+		private ApplicationDbContext _context;
 
-	    public SubmitSamplesController()
-	    {
-		    _context = new ApplicationDbContext();
-	    }
+		public SubmitSamplesController()
+		{
+			_context = new ApplicationDbContext();
+		}
 
-        // GET: SubmitSamples
-        public ActionResult Index()
-        {
-	        var environmentalSample = _context.EnvironmentalSamples.Where(c => c.Submitted == false).ToList();
-            return View(environmentalSample);
-        }
+		// GET: SubmitSamples
+		public ActionResult Index()
+		{
+			var environmentalSample = _context.EnvironmentalSamples.Where(c => c.Submitted == false).ToList();
+			return View(environmentalSample);
+		}
 
-        public ActionResult Index(List<EnvironmentalSample> samples)
-        {
-	        foreach (var sample in samples)
-	        {
-		        if (sample.Submitted)
-		        {
+		public ActionResult Submit(List<EnvironmentalSample> samples)
+		{
+			var environmentalSample = _context.EnvironmentalSamples.Where(c => c.Submitted == false).ToList();
+			if (samples == null)
+				return View("Index", environmentalSample);
+
+			foreach (var sample in samples)
+			{
+				if (sample.Submitted)
+				{
 					//TODO: Update the database to make sample submitted
-		        }
-	        }
+				}
+			}
 
-	        return View();
-        }
+			return View("Index", environmentalSample);
+		}
 	}
 }
