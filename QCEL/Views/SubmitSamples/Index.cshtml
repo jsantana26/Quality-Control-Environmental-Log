@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("Index", "SubmitSamples"))
+@using (Html.BeginForm("Submit", "SubmitSamples"))
 { 
     <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start;">
         <h2>Submit Samples</h2>
@@ -36,11 +36,6 @@
                     <td>@user.Initials</td>
                     <td>@user.Type</td>
                     <td>@user.MicroTest</td>
-                    <td>
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => user.Submitted)
-                        </div>
-                    </td>
                 </tr>
             }
         </tbody>
