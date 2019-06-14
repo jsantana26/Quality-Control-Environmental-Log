@@ -35,6 +35,9 @@ namespace QCEL.Controllers
 			//Form collection returns Id's in a comma separated string ex: "1,2,3,4"
 			var collectionIdString = collection["SelectedSamples"];
 
+			if (collectionIdString == null)
+				RedirectToAction("Index");
+
 			//Convert the string of comma separated values to a list on ints
 			var idList = collectionIdString.Split(',').Select(int.Parse).ToList();
 
