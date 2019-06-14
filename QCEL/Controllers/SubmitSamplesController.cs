@@ -61,8 +61,12 @@ namespace QCEL.Controllers
 
 			CreateSheet.SarfForm(samplesToPrint);
 
-
-			//@Url.Content("~/Content/Images/search-icon.png")
+			foreach (var sample in samplesToPrint)
+			{
+				var sampleInDb = _context.EnvironmentalSamples.SingleOrDefault(c => c.Id == sample.Id);
+				sampleInDb.Submitted = true;
+				_context.SaveChanges();
+			}
 
 			return RedirectToAction("Index");
 		}
