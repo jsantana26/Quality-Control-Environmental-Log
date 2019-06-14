@@ -7,14 +7,14 @@ namespace QCEL.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.EnvironmentalSamples", "Submitted", c => c.Boolean(nullable: false));
-            DropColumn("dbo.EnvironmentalSamples", "PendingSubmission");
+            AddColumn("dbo.Samples", "Submitted", c => c.Boolean(nullable: false));
+            DropColumn("dbo.Samples", "PendingSubmission");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.EnvironmentalSamples", "PendingSubmission", c => c.Boolean(nullable: false));
-            DropColumn("dbo.EnvironmentalSamples", "Submitted");
+            AddColumn("dbo.Samples", "PendingSubmission", c => c.Boolean(nullable: false));
+            DropColumn("dbo.Samples", "Submitted");
         }
     }
 }

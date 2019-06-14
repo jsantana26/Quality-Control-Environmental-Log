@@ -8,7 +8,7 @@ namespace QCEL.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.EnvironmentalSamples",
+                "dbo.Samples",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -28,7 +28,7 @@ namespace QCEL.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.EnvironmentalSamples");
+            DropTable("dbo.Samples");
         }
     }
 }

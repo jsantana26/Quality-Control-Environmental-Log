@@ -7,12 +7,12 @@ namespace QCEL.Migrations
     {
         public override void Up()
         {
-            AlterColumn("dbo.EnvironmentalSamples", "CollectionDate", c => c.DateTime());
+            AlterColumn("dbo.Samples", "CollectionDate", c => c.DateTime());
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.EnvironmentalSamples", "CollectionDate", c => c.DateTime(nullable: false));
+            AlterColumn("dbo.Samples", "CollectionDate", c => c.DateTime(nullable: false));
         }
     }
 }

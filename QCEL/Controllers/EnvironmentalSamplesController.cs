@@ -19,7 +19,7 @@ namespace QCEL.Controllers
 			_context = new ApplicationDbContext();
 		}
 
-		// GET: EnvironmentalSamples
+		// GET: Samples
 		public ActionResult Index()
 		{
 			var environmentalSample = _context.EnvironmentalSamples.ToList();
