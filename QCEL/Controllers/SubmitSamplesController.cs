@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using QCEL.Models;
+using QCEL.ViewModels;
 
 namespace QCEL.Controllers
 {
@@ -20,24 +21,33 @@ namespace QCEL.Controllers
 		public ActionResult Index()
 		{
 			var environmentalSample = _context.EnvironmentalSamples.Where(c => c.Submitted == false).ToList();
-			return View(environmentalSample);
+			var viewModel = new SubmitSampleViewModel
+			{
+				Samples = _context.EnvironmentalSamples.Where(c => c.Submitted == false).ToList(),
+				SelectedSamples = new List<EnvironmentalSample>()
+			};
+			return View(viewModel);
 		}
 
-		public ActionResult Submit(List<EnvironmentalSample> samples)
+		[HttpPost]
+		public ActionResult Submit(FormCollection collection)
 		{
-			var environmentalSample = _context.EnvironmentalSamples.Where(c => c.Submitted == false).ToList();
-			if (samples == null)
-				return View("Index", environmentalSample);
+			//Form collection returns Id's in a comma separated string ex: "1,2,3,4"
+			var collectionIdString = collection["SelectedSamples"];
 
-			foreach (var sample in samples)
+			//Convert the string of comma separated values to a list on ints
+			var idList = collectionIdString.Split(',').Select(int.Parse).ToList();
+
+			//Create new list that will hold the selected samples
+			var SelectedSamples = new List<EnvironmentalSample>();
+
+			//Add each sample based on the id
+			foreach (var id in idList)
 			{
-				if (sample.Submitted)
-				{
-					//TODO: Update the database to make sample submitted
-				}
+				SelectedSamples.Add(_context.EnvironmentalSamples.SingleOrDefault(c => c.Id == id));
 			}
 
-			return View("Index", environmentalSample);
+			return View();
 		}
 	}
 }

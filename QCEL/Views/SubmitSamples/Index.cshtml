@@ -1,51 +1,73 @@
-﻿@model List<QCEL.Models.EnvironmentalSample>
+﻿@using QCEL.Models
+@model QCEL.ViewModels.SubmitSampleViewModel
 @{
     ViewBag.Title = "Submit Samples";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("Submit", "SubmitSamples"))
-{ 
-    <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start;">
-        <h2>Submit Samples</h2>
-        <button type="submit">Submit</button>
-    </div>
 
-    <table id="environmentalSamples" class="table table-bordered table-hover">
+<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start;">
+    <h2>Submit Samples</h2>
+</div>
+<table id="environmentalSamples" class="table table-bordered table-hover">
+    @using (Html.BeginForm("Submit", "SubmitSamples"))
+    {
         <thead>
-            <tr>
-                <th>Sample #</th>
-                <th>Location</th>
-                <th>Request Type</th>
-                <th>Collection Date</th>
-                <th>QC Initials</th>
-                <th>Type/Number of Sample</th>
-                <th>Micro Test</th>
-                <th>Submit</th>
+        <tr>
+            <th>Sample #</th>
+            <th>Location</th>
+            <th>Request Type</th>
+            <th>Collection Date</th>
+            <th>QC Initials</th>
+            <th>Type/Number of Sample</th>
+            <th>Micro Test</th>
+            <th>Submit</th>
 
-            </tr>
+        </tr>
         </thead>
         <tbody>
-            @foreach (var user in Model)
+            @for(int i = 0; i < Model.Samples.Count; i++)
             {
                 <tr>
-                    <td>@user.SampleNumber</td>
-                    <td>@user.Location</td>
-                    <td>@user.RequestType</td>
-                    <td>@user.CollectionDate.Value.ToString("MM/dd/yyyy")</td>
-                    <td>@user.Initials</td>
-                    <td>@user.Type</td>
-                    <td>@user.MicroTest</td>
+                    <td>@Model.Samples[i].SampleNumber</td>
+                    <td>@Model.Samples[i].Location</td>
+                    <td>@Model.Samples[i].RequestType</td>
+                    <td>@Model.Samples[i].CollectionDate.Value.ToString("MM/dd/yyyy")</td>
+                    <td>@Model.Samples[i].Initials</td>
+                    <td>@Model.Samples[i].Type</td>
+                    <td>@Model.Samples[i].MicroTest</td>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"
+                                       name="SelectedSamples"
+                                       value="@Model.Samples[i].Id"
+                                       @if (Model.SelectedSamples.Contains(@Model.Samples[i]))
+                                       {
+                                           <text> checked </text>
+                                       }/>
+                            </label>
+                        </div>
+                    </td>
                 </tr>
             }
+
         </tbody>
-    </table>
-}
+        <div class="form-group text-right">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    }
+</table>
+    
 @section Scripts
 {
     <script>
         $(document).ready(function () {
             $("#environmentalSamples").DataTable({
+                "order": [[3, "desc"]]
+            });
+
+            $("#submittedSamples").DataTable({
                 "order": [[3, "desc"]]
             });
         });
