@@ -9,24 +9,28 @@
 <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start;">
     <h2>Submit Samples</h2>
 </div>
-<table id="environmentalSamples" class="table table-bordered table-hover">
-    @using (Html.BeginForm("Submit", "SubmitSamples"))
-    {
-        <thead>
-        <tr>
-            <th>Sample #</th>
-            <th>Location</th>
-            <th>Request Type</th>
-            <th>Collection Date</th>
-            <th>QC Initials</th>
-            <th>Type/Number of Sample</th>
-            <th>Micro Test</th>
-            <th>Submit</th>
+@using (Html.BeginForm("Submit", "SubmitSamples"))
+{
+    <div class="form-group text-right">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
 
-        </tr>
+    <table id="environmentalSamples" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Sample #</th>
+                <th>Location</th>
+                <th>Request Type</th>
+                <th>Collection Date</th>
+                <th>QC Initials</th>
+                <th>Type/Number of Sample</th>
+                <th>Micro Test</th>
+                <th>Submit</th>
+
+            </tr>
         </thead>
         <tbody>
-            @for(int i = 0; i < Model.Samples.Count; i++)
+            @for (int i = 0; i < Model.Samples.Count; i++)
             {
                 <tr>
                     <td>@Model.Samples[i].SampleNumber</td>
@@ -42,32 +46,20 @@
                                 <input type="checkbox"
                                        name="SelectedSamples"
                                        value="@Model.Samples[i].Id"
-                                       @if (Model.SelectedSamples.Contains(@Model.Samples[i]))
-                                       {
-                                           <text> checked </text>
-                                       }/>
+                                       @if (Model.SelectedSamples.Contains(@Model.Samples[i])) { <text> checked </text>  } />
                             </label>
                         </div>
                     </td>
                 </tr>
             }
-
         </tbody>
-        <div class="form-group text-right">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    }
-</table>
-    
+    </table>
+}
 @section Scripts
 {
     <script>
         $(document).ready(function () {
             $("#environmentalSamples").DataTable({
-                "order": [[3, "desc"]]
-            });
-
-            $("#submittedSamples").DataTable({
                 "order": [[3, "desc"]]
             });
         });
