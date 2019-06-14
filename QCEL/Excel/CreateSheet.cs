@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using QCEL.Models;
@@ -62,6 +63,33 @@ namespace QCEL.Excel
 			}
 		}
 
-		
+		public static void SarfForm(List<EnvironmentalSample> samples)
+		{
+			ExcelConnection excel = new ExcelConnection(System.Web.HttpContext.Current.Server.MapPath("~/Content/Template Files/JelSert_MP Analysis Request Form Environmental_021119 - Protected.xlsx"), "SARF Form");
+
+			var sheet = excel.Sheet;
+
+			//Var j will keep track of the sample in the observable collection
+			var j = 0;
+			//Var i will keep track of the row number in the excel sheet
+			for (var i = 10; i < samples.Count() + 10; i++, j++)
+			{
+				//Default request number to empty string
+				var RequestNumber = "";
+
+
+				//Write the sample information to the excel sheet
+				sheet.Cells[i, 2].Value = samples[j].SampleNumber;      //Product Code
+				sheet.Cells[i, 3].Value = samples[j].Location;          //Location //TODO:Update with blender number
+				sheet.Cells[i, 4].Value = samples[j].Zone;
+				sheet.Cells[i, 5].Value = samples[j].Location;       //Description 
+				sheet.Cells[i, 6].NumberFormat = "mm/dd/yy";                                //Format date
+				sheet.Cells[i, 6].Value = samples[j].CollectionDate;              //Date
+				sheet.Cells[i, 8].Value = RequestNumber;                                    //Request Number //TODO:Add textbox for request number
+			}
+
+			//Open the request form in excel
+			excel.OpenExcel();
+		}
 	}
 }

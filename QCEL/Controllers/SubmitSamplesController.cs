@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using QCEL.Excel;
 using QCEL.Models;
 using QCEL.ViewModels;
 
@@ -58,7 +59,10 @@ namespace QCEL.Controllers
 		{
 			List<EnvironmentalSample> samplesToPrint = System.Web.Helpers.Json.Decode<List<EnvironmentalSample>>(samples);
 
+			CreateSheet.SarfForm(samplesToPrint);
 
+
+			//@Url.Content("~/Content/Images/search-icon.png")
 
 			return RedirectToAction("Index");
 		}
