@@ -6,7 +6,7 @@ using QCEL.Models;
 
 namespace QCEL.Excel
 {
-	public static class GenerateLabel
+	public static class CreateSheet
 	{
 		public static void EnvironmentalLabel(EnvironmentalSample sample)
 		{
@@ -61,5 +61,7 @@ namespace QCEL.Excel
 				excel.OpenExcel();
 			}
 		}
+
+		
 	}
 }

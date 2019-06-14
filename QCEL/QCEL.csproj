@@ -191,7 +191,7 @@
     <Compile Include="Controllers\SubmitSamplesController.cs" />
     <Compile Include="Dtos\SampleLocationDto.cs" />
     <Compile Include="Excel\ExcelConnection.cs" />
-    <Compile Include="Excel\GenerateLabel.cs" />
+    <Compile Include="Excel\CreateSheet.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
