@@ -47,7 +47,7 @@ namespace QCEL.Controllers
 				SelectedSamples.Add(_context.EnvironmentalSamples.SingleOrDefault(c => c.Id == id));
 			}
 
-			return View();
+			return View(SelectedSamples);
 		}
 	}
 }
