@@ -6,7 +6,7 @@
 
 <h2>Print SARF Form</h2>
 
-<table id="environmentalSamples" class="table table-bordered table-hover">
+<table class="table table-bordered table-hover">
     <thead>
     <tr>
         <th>Sample #</th>
@@ -35,20 +35,7 @@
     </tbody>
 </table>
 
-<div style="display: flex; flex-direction: row; align-content: space-between">
-    <a class="btn-link">@Url.Action("Index", "SubmitSamples")Back to list</a>
-    <button class="btn btn-primary">Print SARF</button>
+<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start;">
+    <a href="@Url.Action("Index","SubmitSamples")" class="btn-link">Back to List</a>
+    <button class="btn btn-primary">Print SARF Form</button>
 </div>
-
-
-@section Scripts
-{
-    <script>
-        $(document).ready(function () {
-            $("#environmentalSamples").DataTable({
-                "order": [[3, "desc"]]
-            });
-        });
-    </script>
-
-}
