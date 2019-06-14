@@ -26,6 +26,14 @@ namespace QCEL.Excel
 
 		}
 
+		public ExcelConnection(string templateFile, string sheetName)
+		{
+			_workbooks = _excel.Workbooks;
+			_workbook = _workbooks.Open(templateFile, false, true);
+			Sheet = _workbook.Worksheets[1];
+			Sheet.Name = sheetName;
+		}
+
 		public void OpenExcel()
 		{
 			_excel.Visible = true;
