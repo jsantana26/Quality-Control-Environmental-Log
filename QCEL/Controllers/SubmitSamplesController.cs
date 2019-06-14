@@ -52,5 +52,15 @@ namespace QCEL.Controllers
 
 			return View(SelectedSamples);
 		}
+
+
+		public ActionResult Print(string samples)
+		{
+			List<EnvironmentalSample> samplesToPrint = System.Web.Helpers.Json.Decode<List<EnvironmentalSample>>(samples);
+
+
+
+			return RedirectToAction("Index");
+		}
 	}
 }
