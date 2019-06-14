@@ -1,0 +1,54 @@
+﻿@model List<QCEL.Models.EnvironmentalSample>
+@{
+    ViewBag.Title = "Submit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Print SARF Form</h2>
+
+<table id="environmentalSamples" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Sample #</th>
+        <th>Location</th>
+        <th>Request Type</th>
+        <th>Collection Date</th>
+        <th>QC Initials</th>
+        <th>Type/Number of Sample</th>
+        <th>Micro Test</th>
+    </tr>
+    </thead>
+    <tbody>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td>@Model[i].SampleNumber</td>
+            <td>@Model[i].Location</td>
+            <td>@Model[i].RequestType</td>
+            <td>@Model[i].CollectionDate.Value.ToString("MM/dd/yyyy")</td>
+            <td>@Model[i].Initials</td>
+            <td>@Model[i].Type</td>
+            <td>@Model[i].MicroTest</td>
+        </tr>
+    }
+
+    </tbody>
+</table>
+
+<div style="display: flex; flex-direction: row; align-content: space-between">
+    <a class="btn-link">@Url.Action("Index", "SubmitSamples")Back to list</a>
+    <button class="btn btn-primary">Print SARF</button>
+</div>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#environmentalSamples").DataTable({
+                "order": [[3, "desc"]]
+            });
+        });
+    </script>
+
+}

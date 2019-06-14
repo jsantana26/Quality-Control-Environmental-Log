@@ -485,6 +485,7 @@
     <Content Include="Views\EnvironmentalSamples\Index.cshtml" />
     <Content Include="Views\EnvironmentalSamples\New.cshtml" />
     <Content Include="Views\SubmitSamples\Index.cshtml" />
+    <Content Include="Views\SubmitSamples\Submit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
