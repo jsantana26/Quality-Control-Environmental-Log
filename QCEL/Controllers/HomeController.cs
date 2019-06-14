@@ -19,7 +19,10 @@ namespace QCEL.Controllers
 		public ActionResult Index()
 		{
 			var todaysSamples = _context.EnvironmentalSamples.Count(c => c.CollectionDate == DateTime.Today);
+			var pendingSamples = _context.EnvironmentalSamples.Count(c => c.Submitted == false);
+
 			ViewBag.TodaysSamples = todaysSamples;
+			ViewBag.PendingSamples = pendingSamples;
 
 			if(User.IsInRole(RoleName.CanManageAccounts) || User.IsInRole(RoleName.CanManageSampleLocations))
 				return View("AdminIndex");

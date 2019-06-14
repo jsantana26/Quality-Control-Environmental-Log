@@ -7,11 +7,12 @@
 </div>
 
 <div class="row">
+    @*Card for adding environmental samples*@
     <div class="col-md-4 app-home-card">
         <a href="@Url.Action("Index", "EnvironmentalSamples")">
             <div>
                 <div style="display: flex; flex-direction: row">
-                    <img src="@Url.Content("~/Content/Images/search-icon.png")" alt="SearchIcon" class="app-home-card-img" />
+                    <img src="@Url.Content("~/Content/Images/search-icon.png")" alt="Submit Samples Icon" class="app-home-card-img" />
                     <h2 class="app-home-card-title">Environmental Log</h2>
                 </div>
                 <p class="app-home-card-body">See the records for all Environmental Samples.</p>
@@ -27,6 +28,29 @@
         </a>
     </div>
 
+
+    @*Card for submitting samples*@
+    <div class="col-md-4 app-home-card">
+        <a href="@Url.Action("Index", "SubmitSamples")">
+            <div>
+                <div style="display: flex; flex-direction: row">
+                    <img src="@Url.Content("~/Content/Images/submit-samples-icon.png")" alt="SearchIcon" class="app-home-card-img" />
+                    <h2 class="app-home-card-title">Environmental Log</h2>
+                </div>
+                <p class="app-home-card-body">See the records for all Environmental Samples.</p>
+                @if (@ViewBag.PendingSamples == 1)
+                {
+                    <p class="app-home-card-body app-home-card-body-description">@ViewBag.PendingSamples pending sample</p>
+                }
+                else
+                {
+                    <p class="app-home-card-body app-home-card-body-description">@ViewBag.PendingSamples pending samples</p>
+                }
+            </div>
+        </a>
+    </div>
+
+    @*Card for viewing sample locations reference*@
     <div class="col-md-3 app-home-card">
         <a href="@Url.Action("Index", "SampleLocations")">
             <div>
