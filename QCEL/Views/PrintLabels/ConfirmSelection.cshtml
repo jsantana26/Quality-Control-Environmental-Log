@@ -1,0 +1,39 @@
+﻿@model List<QCEL.Models.EnvironmentalSample>
+@{
+    ViewBag.Title = "ConfirmSelection";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Confirm Selection</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Sample #</th>
+            <th>Location</th>
+            <th>Request Type</th>
+            <th>Collection Date</th>
+            <th>Type/Number of Sample</th>
+            <th>Micro Test</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td>@Model[i].SampleNumber</td>
+                <td>@Model[i].Location</td>
+                <td>@Model[i].RequestType</td>
+                <td>@Model[i].CollectionDate.Value.ToString("MM/dd/yyyy")</td>
+                <td>@Model[i].Type</td>
+                <td>@Model[i].MicroTest</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start;">
+    <a href="@Url.Action("Index","PrintLabels")" class="btn-link">Back to List</a>
+    @Html.ActionLink("Create Labels", "Print", "PrintLabels", new { samples = Json.Encode(@Model) }, new { @class = "btn btn-primary" })
+</div>

@@ -69,8 +69,6 @@ namespace QCEL.Controllers
 			_context.EnvironmentalSamples.Add(newSample);
 			_context.SaveChanges();
 
-			CreateSheet.EnvironmentalLabel(newSample);
-
 
 			return RedirectToAction("Index", "EnvironmentalSamples");
 		}

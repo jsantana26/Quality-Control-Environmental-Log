@@ -187,6 +187,7 @@
     <Compile Include="Controllers\EnvironmentalSamplesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PrintLabelsController.cs" />
     <Compile Include="Controllers\SampleLocationsController.cs" />
     <Compile Include="Controllers\SubmitSamplesController.cs" />
     <Compile Include="Dtos\SampleLocationDto.cs" />
@@ -490,6 +491,8 @@
     <Content Include="Views\EnvironmentalSamples\New.cshtml" />
     <Content Include="Views\SubmitSamples\Index.cshtml" />
     <Content Include="Views\SubmitSamples\Submit.cshtml" />
+    <Content Include="Views\PrintLabels\Index.cshtml" />
+    <Content Include="Views\PrintLabels\ConfirmSelection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
