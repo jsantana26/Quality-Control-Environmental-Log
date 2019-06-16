@@ -59,5 +59,11 @@ namespace QCEL.Models
 		/// Default will be false when sample is created
 		/// </summary>
 		public bool Submitted { get; set; }
+
+		/// <summary>
+		/// Has the user printed the label for this sample
+		/// Default will be false when sample is created
+		/// </summary>
+		public bool LabelPrinted { get; set; }
 	}
 }

@@ -232,6 +232,10 @@
     <Compile Include="Migrations\201906092050010_UpdatedNameForPendingSamplesToSubmitted.Designer.cs">
       <DependentUpon>201906092050010_UpdatedNameForPendingSamplesToSubmitted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906160026175_AddedPropertyLabelPrinted.cs" />
+    <Compile Include="Migrations\201906160026175_AddedPropertyLabelPrinted.Designer.cs">
+      <DependentUpon>201906160026175_AddedPropertyLabelPrinted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EnvironmentalSample.cs" />
@@ -537,6 +541,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906092050010_UpdatedNameForPendingSamplesToSubmitted.resx">
       <DependentUpon>201906092050010_UpdatedNameForPendingSamplesToSubmitted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906160026175_AddedPropertyLabelPrinted.resx">
+      <DependentUpon>201906160026175_AddedPropertyLabelPrinted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
