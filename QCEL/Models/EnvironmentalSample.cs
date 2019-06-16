@@ -25,6 +25,12 @@ namespace QCEL.Models
 		public string Location { get; set; }
 
 		/// <summary>
+		/// Describes the location of the swab site.
+		/// Could include blender, mezzanine, or tank number
+		/// </summary>
+		public string Description { get; set; }
+
+		/// <summary>
 		/// Type of test that will be performed
 		/// </summary>
 		public string MicroTest { get; set; }
