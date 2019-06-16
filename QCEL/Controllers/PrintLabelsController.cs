@@ -61,7 +61,15 @@ namespace QCEL.Controllers
 
 	        CreateSheet.EnvironmentalLabel(samplesToPrint);
 
-	        return RedirectToAction("Index");
+	        foreach (var sample in samplesToPrint)
+	        {
+		        var sampleInDb = _context.EnvironmentalSamples.SingleOrDefault(c => c.Id == sample.Id);
+		        sampleInDb.LabelPrinted = true;
+	        }
+
+	        _context.SaveChanges();
+
+			return RedirectToAction("Index");
         }
 	}
 }
