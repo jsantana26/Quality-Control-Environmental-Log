@@ -55,6 +55,7 @@ namespace QCEL.Controllers
 			var newSample = new EnvironmentalSample
 			{
 				Location = viewModel.EnvironmentalSample.Location,
+				Description = viewModel.EnvironmentalSample.Description,
 				CollectionDate = viewModel.EnvironmentalSample.CollectionDate,
 				SampleNumber = sampleInfo.SampleNumber,
 				MicroTest = sampleInfo.MicroTest,
