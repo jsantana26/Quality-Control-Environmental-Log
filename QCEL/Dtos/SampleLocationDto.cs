@@ -42,5 +42,11 @@ namespace QCEL.Dtos
 		/// Type of test that was taken
 		/// </summary>
 		public string RequestType { get; set; }
+
+		/// <summary>
+		/// Description of the site location.
+		/// Could include blender, mezzanine, or tank# location.
+		/// </summary>
+		public string Description { get; set; }
 	}
 }
