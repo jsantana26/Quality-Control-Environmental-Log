@@ -236,6 +236,14 @@
     <Compile Include="Migrations\201906160026175_AddedPropertyLabelPrinted.Designer.cs">
       <DependentUpon>201906160026175_AddedPropertyLabelPrinted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906161610142_AddedSiteDescriptionToSampleLocation.cs" />
+    <Compile Include="Migrations\201906161610142_AddedSiteDescriptionToSampleLocation.Designer.cs">
+      <DependentUpon>201906161610142_AddedSiteDescriptionToSampleLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906161612408_PopoulateSampleNumbers.cs" />
+    <Compile Include="Migrations\201906161612408_PopoulateSampleNumbers.Designer.cs">
+      <DependentUpon>201906161612408_PopoulateSampleNumbers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EnvironmentalSample.cs" />
@@ -544,6 +552,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906160026175_AddedPropertyLabelPrinted.resx">
       <DependentUpon>201906160026175_AddedPropertyLabelPrinted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906161610142_AddedSiteDescriptionToSampleLocation.resx">
+      <DependentUpon>201906161610142_AddedSiteDescriptionToSampleLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906161612408_PopoulateSampleNumbers.resx">
+      <DependentUpon>201906161612408_PopoulateSampleNumbers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
