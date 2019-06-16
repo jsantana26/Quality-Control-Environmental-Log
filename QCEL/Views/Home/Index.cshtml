@@ -63,3 +63,26 @@
         </a>
     </div>
 </div>
+
+<div class="row">
+    @*Card for printing sample labels*@
+    <div class="col-md-4 app-home-card employee-card">
+        <a href="@Url.Action("Index", "PrintLabels")">
+            <div>
+                <div style="display: flex; flex-direction: row">
+                    <img src="@Url.Content("~/Content/Images/submit-samples-icon.png")" alt="SearchIcon" class="app-home-card-img" />
+                    <h2 class="app-home-card-title">Print Labels</h2>
+                </div>
+                <p class="app-home-card-body">Print labels for samples that you have created.</p>
+                @if (@ViewBag.PendingSamples == 1)
+                {
+                    <p class="app-home-card-body app-home-card-body-description">@ViewBag.LabelsReady label ready</p>
+                }
+                else
+                {
+                    <p class="app-home-card-body app-home-card-body-description">@ViewBag.LabelsReady labels ready</p>
+                }
+            </div>
+        </a>
+    </div>
+</div>
