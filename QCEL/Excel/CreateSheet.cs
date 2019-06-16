@@ -69,7 +69,7 @@ namespace QCEL.Excel
 				//Sample information
 				sheet.Cells[row, column + 1].Value = samples[i].SampleNumber;
 				sheet.Cells[row + 1, column + 1].Value = samples[i].Location;
-				sheet.Cells[row + 1, column + 2].Value = samples[i].Location;
+				sheet.Cells[row + 1, column + 2].Value = samples[i].Description;
 				sheet.Cells[row + 2, column + 1].NumberFormat = "mm/dd/yyyy h:mmAM/PM";
 				sheet.Cells[row + 2, column + 1].Value = samples[i].CollectionDate;
 				sheet.Cells[row + 4, column + 1].Value = samples[i].Initials;
