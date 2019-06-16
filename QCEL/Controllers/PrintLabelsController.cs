@@ -26,7 +26,7 @@ namespace QCEL.Controllers
 			var userInitials = currentUser.FirstName[0].ToString() + currentUser.LastName[0].ToString();
 
 			//Get samples from db that match the user's initials
-			var samples = _context.EnvironmentalSamples.Where(c => c.Initials == userInitials).ToList();
+			var samples = _context.EnvironmentalSamples.Where(c => c.Initials == userInitials).Where(c => c.LabelPrinted == false).ToList();
 
 			return View(samples);
         }
