@@ -31,7 +31,7 @@ namespace QCEL.Controllers
 		}
 
 		// GET: SampleLocations/Details/5
-		public ActionResult Details(int id)
+			public ActionResult Details(int id)
 		{
 			return View();
 		}

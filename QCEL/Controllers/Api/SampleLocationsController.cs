@@ -40,6 +40,21 @@ namespace QCEL.Controllers.Api
 	        return Ok(Mapper.Map<SampleLocation, SampleLocationDto>(sampleLocation));
         }
 
+        [HttpGet]
+        public IHttpActionResult GetDescription(string location)
+        {
+	        var sampleLocation = _context
+		        .SampleLocations
+		        .Where(c => c.Location.Contains(location))
+		        .Select(c => c.Description)
+		        .SingleOrDefault();
+
+	        if (sampleLocation == null)
+		        return NotFound();
+
+	        return Ok(sampleLocation);
+        }
+
         // POST: api/SampleLocations
 		[HttpPost]
         public IHttpActionResult CreateSampleLocation(SampleLocationDto sampleLocationDto)

@@ -244,6 +244,10 @@
     <Compile Include="Migrations\201906161612408_PopoulateSampleNumbers.Designer.cs">
       <DependentUpon>201906161612408_PopoulateSampleNumbers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906161632429_AddedDescriptionToEnvironmentalSampleModel.cs" />
+    <Compile Include="Migrations\201906161632429_AddedDescriptionToEnvironmentalSampleModel.Designer.cs">
+      <DependentUpon>201906161632429_AddedDescriptionToEnvironmentalSampleModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EnvironmentalSample.cs" />
@@ -558,6 +562,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906161612408_PopoulateSampleNumbers.resx">
       <DependentUpon>201906161612408_PopoulateSampleNumbers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906161632429_AddedDescriptionToEnvironmentalSampleModel.resx">
+      <DependentUpon>201906161632429_AddedDescriptionToEnvironmentalSampleModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
