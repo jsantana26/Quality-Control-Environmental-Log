@@ -16,6 +16,7 @@
     <tr>
         <th>Sample #</th>
         <th>Location</th>
+        <th>Description</th>
         <th>Request Type</th>
         <th>Collection Date</th>
         <th>QC Initials</th>
@@ -26,17 +27,18 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var user in Model)
+    @foreach (var sample in Model)
     {
         <tr>
-            <td>@user.SampleNumber</td>
-            <td>@user.Location</td>
-            <td>@user.RequestType</td>
-            <td>@user.CollectionDate.Value.ToString("MM/dd/yyyy")</td>
-            <td>@user.Initials</td>
-            <td>@user.Type</td>
-            <td>@user.MicroTest</td>
-            @if (user.Submitted)
+            <td>@sample.SampleNumber</td>
+            <td>@sample.Description</td>
+            <td>@sample.Location</td>
+            <td>@sample.RequestType</td>
+            <td>@sample.CollectionDate.Value.ToString("MM/dd/yyyy")</td>
+            <td>@sample.Initials</td>
+            <td>@sample.Type</td>
+            <td>@sample.MicroTest</td>
+            @if (sample.Submitted)
             {
                 <td>Submitted</td>
             }
