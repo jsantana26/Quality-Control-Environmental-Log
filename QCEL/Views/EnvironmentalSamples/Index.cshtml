@@ -6,7 +6,10 @@
 
 <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start;">
     <h2>@ViewBag.Title</h2>
-    @Html.ActionLink("Add Sample", "New", "EnvironmentalSamples", routeValues: null, htmlAttributes: new { style="margin: 15px 0px 0px 0px;", @class = "btn btn-primary"})
+    <div>
+        @Html.ActionLink("Print Labels", "Index", "PrintLabels", routeValues: null, htmlAttributes: new {style = "margin: 15px 0px 0px 0px;", @class = "btn btn-primary"})
+        @Html.ActionLink("Add Sample", "New", "EnvironmentalSamples", routeValues: null, htmlAttributes: new {style = "margin: 15px 0px 0px 0px;", @class = "btn btn-primary"})
+    </div>
 </div>
 <table id="environmentalSamples" class="table table-bordered table-hover">
     <thead>
