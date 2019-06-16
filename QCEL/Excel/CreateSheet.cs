@@ -93,15 +93,14 @@ namespace QCEL.Excel
 
 
 				//Write the sample information to the excel sheet
-				sheet.Cells[i, 2].Value = samples[j].SampleNumber;      //Product Code
-				//TODO:Update with blender number
-				sheet.Cells[i, 3].Value = samples[j].Location;          //Location 
-				sheet.Cells[i, 4].Value = samples[j].Zone;
-				sheet.Cells[i, 5].Value = samples[j].Location;       //Description 
-				sheet.Cells[i, 6].NumberFormat = "mm/dd/yy";                                //Format date
-				sheet.Cells[i, 6].Value = samples[j].CollectionDate;              //Date
+				sheet.Cells[i, 2].Value = samples[j].SampleNumber;		//Sample Number
+				sheet.Cells[i, 3].Value = samples[j].Description;		//Room Area
+				sheet.Cells[i, 4].Value = samples[j].Zone;				//Zone
+				sheet.Cells[i, 5].Value = samples[j].Location;			//Location
+				sheet.Cells[i, 6].NumberFormat = "mm/dd/yy";			//Format date
+				sheet.Cells[i, 6].Value = samples[j].CollectionDate;	//Date
 				//TODO:Add textbox for request number
-				sheet.Cells[i, 8].Value = RequestNumber;                                    //Request Number 
+				sheet.Cells[i, 8].Value = RequestNumber;				//Request Number 
 			}
 
 			//Open the request form in excel
