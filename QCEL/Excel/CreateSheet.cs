@@ -9,58 +9,72 @@ namespace QCEL.Excel
 {
 	public static class CreateSheet
 	{
-		public static void EnvironmentalLabel(EnvironmentalSample sample)
+		public static void EnvironmentalLabel(List<EnvironmentalSample> samples)
 		{
 			ExcelConnection excel = new ExcelConnection("Sample Labels");
 
 
 			var sheet = excel.Sheet;
 
-			//Make sure sheet exists
-			if (sheet != null)
+			// Go through every sample in the list
+			for (var i = 0; i < samples.Count; i++)
 			{
+				//Samples will be formatted into two columns, then it will go to the next line
+
+				// Column number will be either 1 or 2
+				// If sample is odd, it will go to first column of labels (Column 1 in excel)
+				// If sample is even, it will go to the second column of labels (Column 5 in excel)
+				int column = (i % 2 == 0) ? 1 : 5;
+
+				// Since there are 5 rows of information and 1 empty row, it will place the label information every six rows
+				// Divide by 2 and round down because there will be 2 labels per row of labels,
+				//		0/2 = 0, 1/2 = 0, 2/2 = 1, 3/2 = 1, 4/2 = 2, 5/2 = 2
+				//		The result will be the row where label will be placed
+				// Multiply by six because there will be six rows of information on the label, so we want to move down by 6 every time
+				// Add 2 because the sheet starts 2 rows from the top, leaving 2 empty rows
+				var row = (Math.Floor((double) i / 2) * 6) + 2;
+
 				//Format Cell Width
-				sheet.Columns[1].ColumnWidth = 8.91;
-				sheet.Columns[2].ColumnWidth = 19.18;
-				sheet.Columns[3].ColumnWidth = 13.64;
+				sheet.Columns[column].ColumnWidth = 8.91;
+				sheet.Columns[column + 1].ColumnWidth = 19.18;
+				sheet.Columns[column + 2].ColumnWidth = 13.64;
 
 				//Format Row Height
-				sheet.Rows[2].RowHeight = 20.25;
-				sheet.Rows[3].RowHeight = 20.25;
-				sheet.Rows[4].RowHeight = 20.25;
-				sheet.Rows[5].RowHeight = 20.25;
-				sheet.Rows[6].RowHeight = 20.25;
+				sheet.Rows[row].RowHeight = 20.25;
+				sheet.Rows[row + 1].RowHeight = 20.25;
+				sheet.Rows[row + 2].RowHeight = 20.25;
+				sheet.Rows[row + 3].RowHeight = 20.25;
+				sheet.Rows[row + 4].RowHeight = 20.25;
 
 				//Set Word Wrap for Sample Information Column
-				sheet.Columns[2].WrapText = true;
+				sheet.Columns[column + 1].WrapText = true;
 
 				//Set font family for each column
-				sheet.Columns[1].Font.Name = "Calibri";
-				sheet.Columns[2].Font.Name = "Calibri";
-				sheet.Columns[3].Font.Name = "Calibri";
+				sheet.Columns[column].Font.Name = "Calibri";
+				sheet.Columns[column + 1].Font.Name = "Calibri";
+				sheet.Columns[column + 2].Font.Name = "Calibri";
 
 				//Set font size for each column
-				sheet.Columns[1].Font.Size = 8;
-				sheet.Columns[2].Font.Size = 8;
-				sheet.Columns[3].Font.Size = 7;
+				sheet.Columns[column].Font.Size = 8;
+				sheet.Columns[column + 1].Font.Size = 8;
+				sheet.Columns[column + 2].Font.Size = 7;
 
 				//Title for labels
-				sheet.Cells[2, 1].Value = "Product Code";
-				sheet.Cells[3, 1].Value = "Location:";
-				sheet.Cells[4, 1].Value = "Date/Time";
-				sheet.Cells[5, 1].Value = "Lot #";
-				sheet.Cells[6, 1].Value = "QC Initials";
+				sheet.Cells[row, column].Value = "Product Code";
+				sheet.Cells[row + 1, column].Value = "Location:";
+				sheet.Cells[row + 2, column].Value = "Date/Time";
+				sheet.Cells[row + 3, column].Value = "Lot #";
+				sheet.Cells[row + 4, column].Value = "QC Initials";
 
 				//Sample information
-				sheet.Cells[2, 2].Value = sample.SampleNumber;
-				sheet.Cells[3, 2].Value = sample.Location;
-				sheet.Cells[3, 3].Value = sample.Location;
-				sheet.Cells[4, 2].NumberFormat = "mm/dd/yyyy";
-				sheet.Cells[4, 2].Value = sample.CollectionDate;
-				sheet.Cells[6, 2].Value = sample.Initials;
-
-				excel.OpenExcel();
+				sheet.Cells[row, column + 1].Value = samples[i].SampleNumber;
+				sheet.Cells[row + 1, column + 1].Value = samples[i].Location;
+				sheet.Cells[row + 1, column + 2].Value = samples[i].Location;
+				sheet.Cells[row + 2, column + 1].NumberFormat = "mm/dd/yyyy h:mmAM/PM";
+				sheet.Cells[row + 2, column + 1].Value = samples[i].CollectionDate;
+				sheet.Cells[row + 4, column + 1].Value = samples[i].Initials;
 			}
+			excel.OpenExcel();
 		}
 
 		public static void SarfForm(List<EnvironmentalSample> samples)
