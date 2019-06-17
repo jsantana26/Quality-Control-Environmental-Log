@@ -78,4 +78,17 @@
             </div>
         </a>
     </div>
+
+    @*Card for viewing archive data of the environmental samples*@
+    <div class="col-md-4 app-home-card management-card">
+        <a href="@Url.Action("Index", "Archive")">
+            <div>
+                <div style="display: flex; flex-direction: row">
+                    <img src="@Url.Content("~/Content/Images/search-icon.png")" alt="SearchIcon" class="app-home-card-img" />
+                    <h2 class="app-home-card-title">Environmental Log</h2>
+                </div>
+                <p class="app-home-card-body">View all records for environmental samples. Including sorting features.</p>
+            </div>
+        </a>
+    </div>
 </div>
