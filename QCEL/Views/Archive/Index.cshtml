@@ -1,0 +1,105 @@
+﻿@model QCEL.ViewModels.DateRangeViewModel
+@{
+    ViewBag.Title = "Environmental Sample Log";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start;">
+    <h2>@ViewBag.Title</h2>
+    <button id="filterBtn" class="btn btn-primary" style = "margin: 15px 0px 0px 0px;">Filter</button>
+</div>
+
+<div id="filerByDateDiv" class="form-horizontal">
+    @using (Html.BeginForm("FilterDate","Archive",FormMethod.Post))
+    {
+        <div class="form-group">
+            <!-- Date input -->
+            <label class="control-label" for="date">From</label>
+            @Html.TextBoxFor(m => m.FromDate, "{0: MM/yyyy}", new { @class = "form-control", id = "dateFrom", name = "date", placeholder = "MM/YYYY" })
+        </div>
+        <div class="form-group">
+            <!-- Date input -->
+            <label class="control-label" for="date">To</label>
+            @Html.TextBoxFor(m => m.ToDate, "{0: MM/yyyy}", new { @class = "form-control", id = "dateTo", name = "date", placeholder = "MM/YYYY" })
+        </div>
+        <div class="form-group">
+            <!-- Submit button -->
+            <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+        </div>
+
+    }
+</div>
+
+<table id="environmentalSamples" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Sample #</th>
+            <th>Location</th>
+            <th>Description</th>
+            <th>Request Type</th>
+            <th>Collection Date</th>
+            <th>QC Initials</th>
+            <th>Type/Number of Sample</th>
+            <th>Micro Test</th>
+            <th>Status</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sample in Model.EnvironmentalSamples)
+        {
+            <tr>
+                <td>@sample.SampleNumber</td>
+                <td>@sample.Location</td>
+                <td>@sample.Description</td>
+                <td>@sample.RequestType</td>
+                <td>@sample.CollectionDate.Value.ToString("MM/dd/yyyy")</td>
+                <td>@sample.Initials</td>
+                <td>@sample.Type</td>
+                <td>@sample.MicroTest</td>
+                @if (sample.Submitted)
+                {
+                    <td>Submitted</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts
+{
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    <script>
+        $(document).ready(function() {
+            $("#environmentalSamples").DataTable({
+                "order": [[ 4, "desc" ]]
+            });
+
+            $("#filerByDateDiv").hide();
+
+            $("#filterBtn").click(function() {
+                $("#filerByDateDiv").toggle();
+            });
+
+
+            var date_from = $('#dateFrom'); //our date input has the id "date"
+            var date_to = $('#dateTo');
+            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+            var options={
+                format: 'mm/yyyy',
+                viewMode: "months",
+                minViewMode:"months",
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            };
+            date_from.datepicker(options);
+            date_to.datepicker(options);
+        });
+    </script>
+}

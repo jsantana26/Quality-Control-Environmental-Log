@@ -258,6 +258,7 @@
     <Compile Include="Models\SampleLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\DateRangeViewModel.cs" />
     <Compile Include="ViewModels\NewEnvironmentalSampleViewModel.cs" />
     <Compile Include="ViewModels\SubmitSampleViewModel.cs" />
   </ItemGroup>
@@ -511,10 +512,10 @@
     <Content Include="Views\PrintLabels\Index.cshtml" />
     <Content Include="Views\PrintLabels\ConfirmSelection.cshtml" />
     <Content Include="Views\SampleLocations\Edit.cshtml" />
+    <Content Include="Views\Archive\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Archive\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
