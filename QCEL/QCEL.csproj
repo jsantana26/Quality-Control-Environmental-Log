@@ -509,6 +509,7 @@
     <Content Include="Views\SubmitSamples\Submit.cshtml" />
     <Content Include="Views\PrintLabels\Index.cshtml" />
     <Content Include="Views\PrintLabels\ConfirmSelection.cshtml" />
+    <Content Include="Views\SampleLocations\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -73,25 +73,6 @@ namespace QCEL.Controllers.Api
 	        return Created(new Uri(Request.RequestUri + "/" + sampleLocation.Id), sampleLocationDto );
         }
 
-        // PUT: api/SampleLocations/5
-		[HttpPut]
-        public IHttpActionResult UpdateSampleLocation(int id, SampleLocationDto sampleLocationDto)
-        {
-	        if (!ModelState.IsValid)
-		        return BadRequest();
-
-	        var sampleLocationInDb = _context.SampleLocations.SingleOrDefault(c => c.Id == id);
-
-	        if (sampleLocationInDb == null)
-		        return NotFound();
-
-	        Mapper.Map(sampleLocationDto, sampleLocationInDb);
-
-	        _context.SaveChanges();
-
-	        return Ok();
-        }
-
         // DELETE: api/SampleLocations/5
 		[HttpDelete]
         public IHttpActionResult Delete(int id)

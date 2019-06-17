@@ -1,0 +1,47 @@
+﻿@model QCEL.Models.SampleLocation
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit @Model.Location</h2>
+
+@using (Html.BeginForm("Save", "SampleLocations"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.SampleNumber)
+        @Html.TextBoxFor(m => m.SampleNumber, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Location)
+        @Html.TextBoxFor(m => m.Location, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.MicroTest)
+        @Html.TextBoxFor(m => m.MicroTest, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Type)
+        @Html.TextBoxFor(m => m.Type, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProductCode)
+        @Html.TextBoxFor(m => m.ProductCode, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Zone)
+        @Html.TextBoxFor(m => m.Zone, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.RequestType)
+        @Html.TextBoxFor(m => m.RequestType, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.Id);
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
