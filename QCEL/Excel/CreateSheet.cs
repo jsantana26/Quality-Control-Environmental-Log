@@ -94,9 +94,9 @@ namespace QCEL.Excel
 
 				//Write the sample information to the excel sheet
 				sheet.Cells[i, 2].Value = samples[j].SampleNumber;		//Sample Number
-				sheet.Cells[i, 3].Value = samples[j].Description;		//Room Area
+				sheet.Cells[i, 3].Value = samples[j].Location;		//Room Area
 				sheet.Cells[i, 4].Value = samples[j].Zone;				//Zone
-				sheet.Cells[i, 5].Value = samples[j].Location;			//Location
+				sheet.Cells[i, 5].Value = samples[j].Description;			//Location
 				sheet.Cells[i, 6].NumberFormat = "mm/dd/yy";			//Format date
 				sheet.Cells[i, 6].Value = samples[j].CollectionDate;	//Date
 				//TODO:Add textbox for request number
